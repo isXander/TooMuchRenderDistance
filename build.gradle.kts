@@ -62,11 +62,12 @@ dependencies {
     modImplementation(libs.fabric.loader)
 
 //    modImplementation(libs.fabric.api)
-//    listOf(
-//        "fabric-resource-loader-v0,
-//    ).forEach {
-//        modImplementation(fabricApi.module(it, libs.versions.fabric.api.get()))   
-//    }
+    listOf(
+        "fabric-rendering-data-attachment-v1",
+        "fabric-rendering-fluids-v1",
+    ).forEach {
+        modImplementation(fabricApi.module(it, libs.versions.fabric.api.get()))
+    }
 
     modImplementation(libs.mod.menu)
     modImplementation(libs.yet.another.config.lib)
@@ -75,8 +76,10 @@ dependencies {
         implementation(it)
         annotationProcessor(it)
         include(it)
-        // "clientAnnotationProcessor"(it) // DO NOT FORGET THIS IF SPLIT SOURCEES
+        // "clientAnnotationProcessor"(it) // DO NOT FORGET THIS IF SPLIT SOURCES
     }
+
+    modImplementation("maven.modrinth:sodium:mc1.20.1-0.5.2")
 }
 
 tasks {
